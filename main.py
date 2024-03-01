@@ -1,5 +1,7 @@
 import telebot
 from telebot import types
+import logging
+import time
 
 # Указываем токен вашего бота
 TOKEN = '7161762216:AAH_tQZnX-0S5rj43BKD_Yk6qhmSyyTd5Zk'
@@ -157,5 +159,10 @@ def handle_parts_list(message):
         # Отправляем ссылку
         bot.send_message(message.chat.id, "Напишите сюда: [Avtozapchel](https://t.me/avtozapchel)", parse_mode="Markdown")
 
-# Запускаем бота
-bot.polling()
+
+while True:
+    try:
+        bot.polling(none_stop=True)
+    except Exception as e:
+        logging.error(e)
+        time.sleep(15)
