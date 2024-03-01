@@ -159,6 +159,17 @@ def handle_parts_list(message):
         # Отправляем ссылку
         bot.send_message(message.chat.id, "Напишите сюда: [Avtozapchel](https://t.me/avtozapchel)", parse_mode="Markdown")
 
+        # Добавляем кнопку "Выйти в меню ❌"
+        keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+        button_exit = types.KeyboardButton("Выйти в меню ❌")
+        keyboard.add(button_exit)
+        bot.send_message(message.chat.id, "Чтобы вернуться в меню, нажмите кнопку:", reply_markup=keyboard)
+
+    # Обработчик кнопки "Выйти в меню ❌"
+    @bot.message_handler(func=lambda message: message.text == "Выйти в меню ❌")
+    def handle_exit(message):
+        # Вызываем обработчик команды /start для возвращения в начало диалога
+        handle_start(message)
 
 while True:
     try:
