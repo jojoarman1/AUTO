@@ -157,7 +157,7 @@ def handle_parts_list(message):
         keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
         button_exit = types.KeyboardButton("Выход в меню")
         keyboard.add(button_exit)
-        bot.send_message(message.chat.id, "Вам ответят в ближайшее время!", reply_markup=keyboard)
+        bot.send_message(message.chat.id, "Вскоре наши менеджеры свяжутся с Вами!\n\nЕсли вам не ответили,то причина это закрытый аккаунт , просьба написать напрямую менеджеру", reply_markup=keyboard)
 
         # Очищаем данные пользователя
         del user_data[message.chat.id]
