@@ -171,7 +171,7 @@ def handle_parts_list(message):
 
         # После сбора всей необходимой информации
         # Отправляем информацию в указанный чат
-        chat_id = '735291377'  # Указываем chat_id чата
+        chat_id = '7089777142'  # Указываем chat_id чата
         bot.send_message(chat_id, formatted_info, parse_mode="HTML")  # Отправляем сообщение в указанный чат
 
         # Отправляем ссылку
